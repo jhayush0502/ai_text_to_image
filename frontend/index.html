@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidzAI Image Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+    <div class="modal-container">
+        <div class="container bg-white rounded shadow-md p-5">
+            <h1 class="text-3xl font-semibold text-center mb-5">VidzAI Image Generator</h1>
+
+            <form id="imageForm" class="space-y-5">
+                <div>
+                    <label for="prompt" class="block text-lg font-medium">Prompt</label>
+                    <input type="text" id="promptInput" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter image prompt" required>
+                </div>
+
+                <div>
+                    <label for="size" class="block text-lg font-medium">Size</label>
+                    <select id="size" class="w-full p-2 border border-gray-300 rounded">
+                        <option value="1024x1024">1024x1024</option>
+                        <option value="1024x1792">1024x1792</option>
+                        <option value="1792x1024">1792x1024</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="style" class="block text-lg font-medium">Style</label>
+                    <select id="style" class="w-full p-2 border border-gray-300 rounded">
+                        <option value="vivid">Vivid</option>
+                        <option value="natural">Natural</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600">Generate Image</button>
+            </form>
+
+            <div id="loader" class="flex justify-center mt-5 hidden">
+                <div class="spinner-border text-blue-500" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
+
+            <div class="mt-5">
+                <img id="generatedImage" class="w-full max-w-lg mx-auto hidden" alt="Generated Image">
+                <a id="downloadBtn" class="hidden mt-3 inline-block px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600" download>Download Image</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
